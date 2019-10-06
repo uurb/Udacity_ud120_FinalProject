@@ -401,7 +401,8 @@ Pipeline(memory=None,
 ```
 
 At the end of the tuning section, results didn't changed much. As a final decision I chose the DecisionTreeClassifier model because it has the highest f1 score.
-For the evaluation I used "tester.py" which is provided by Udacity.
+
+**For the evaluation I used "tester.py" which is provided by Udacity.**
 
 ## Conclusion
 The goal set by Udacity was to achieve scores at least 0.3 for precision and recall. I got scores for precision 0.71987, recall 0.68100, f1 0.69900 and accuracy 0.92213. Which means the persons I labeled as pois are actually pois with 71.987 percentage. Also model could identify %68.100 of the pois correctly. This result was the best one i could achieve. 
