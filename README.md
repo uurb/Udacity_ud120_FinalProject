@@ -111,7 +111,7 @@ sns.boxplot(x='poi',y='salary',data=enron_frame)
 plt.show()
 ```
 
-![](https://github.com/uurb/Udacity_ud120_FinalProject/tree/master/outputs&graphs/#1salary_with_total.png)
+![](https://github.com/uurb/Udacity_ud120_FinalProject/blob/master/outputs%26graphs/%231salary_with_total.png)
 
 ```python
 #salary outlier detect
@@ -132,7 +132,7 @@ enron_frame = enron_frame.drop(["TOTAL","THE TRAVEL AGENCY IN THE PARK"])
 
 ### Creating New Features
 The first thing I do in this section was to create new features which can helpful. I decided to add six new features to our dataset. The first two features were email ratios as "from_poi_to_this_person"/"to_messages" and "from_this_person_to_poi" / "from_messages". The thought that i have was finding ratio would be more helpful than numbers of corresponding messages. For instance, a person could send 1000 mails and 100 of them could be to poi. Also another person could send 100 mails and all of them could be to poi. In this situation comparing ratios are more meaningful than numbers.
-Other 4 ones were "bonus" / "salary", "bonus" / "total_payments", "expenses" / "salary" and "total_stock_value" / "salary". The idea behind all these 4 was similar.  The ratio of bonus,expenses per salary could separate the people related with fraud and others. 
+Other 4 ones were "bonus" / "salary", "bonus" / "total_payments", "expenses" / "salary" and "total_stock_value" / "salary". The idea behind all these 4 was similar.  The ratio of bonus,expenses per salary could separate the people related with fraud and others. High bonuses, expenses over salary could be sign of fraud.
 
 ```python
 enron_frame['to_poi_ratio'] = enron_frame['from_poi_to_this_person'] / enron_frame['to_messages']
@@ -306,7 +306,7 @@ Pipeline(memory=None,
 ############### KNN ###############
 ```
 
-DecisionTreeClassifier performs best according to f1 performance metric. RandomForest performs best if precision metric considered. I chose f1 performance metric because f1 performance metric considers both precision and recall. Also for enron case precision could be more important because I don't want to identify some people as poi who are not poi actually. For the next step I chose the DecisionTree and RandomForest algorithms which gave the best score for those metrics.
+DecisionTreeClassifier performs best according to f1 performance metric. RandomForest performs best if precision metric considered. I chose f1 performance metric because f1 performance metric considers both precision and recall. Also for the enron case, precision could be more important than the other metrics if we don't want to misidentify some people as poi. For the next step I chose the DecisionTree and RandomForest algorithms which gave the best score for those metrics.
 
 ## Tuning Algorithm & Evaluation
 Until this point we run our algorithms with default parameters but the performance of the models can be improved by tuning the parameters. For this purpose, I used GridSearchCV. This takes grid of parameter and tries combination of these parameters and gives the combination which leads to the best result. I tried to tune "criterion", "max_depth", "min_samples_split" and "min_samples_leaf" parameters for DecisionTree algorithm. 
